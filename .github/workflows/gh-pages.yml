@@ -68,6 +68,9 @@ jobs:
     - name: 'Preparing for ebooks generations'
       run: |
         npx honkit build
+
+    - name: 'Make folder ebooks'
+      run: |
         mkdir ebooks
 
     - name: 'Generating ebook in pdf'
