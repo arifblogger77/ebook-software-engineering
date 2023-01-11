@@ -68,7 +68,6 @@ jobs:
     - name: 'Preparing for ebooks generations'
       run: |
         npx honkit build
-        mkdir _book
 
     - name: 'Generating ebook in pdf'
       run: honkit pdf ./ ./_book/${{ env.ebook_name }}.pdf
