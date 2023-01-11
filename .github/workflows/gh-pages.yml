@@ -26,6 +26,7 @@ jobs:
     - name: Build
       run: |
         npx honkit build
+        cp ./CNAME _book/CNAME
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
