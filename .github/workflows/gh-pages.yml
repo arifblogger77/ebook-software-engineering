@@ -74,11 +74,11 @@ jobs:
         mkdir ebooks
 
     - name: 'Generating ebook in pdf'
-      run: npx honkit pdf ./ ./_book/ebooks/${{ env.ebook_name }}.pdf
+      run: npx honkit pdf ./ ./_book/ebooks/${{ env.EBOOK_NAME }}.pdf
     - name: 'Generating ebook in epub'
-      run: npx honkit epub ./ ./_book/ebooks/${{ env.ebook_name }}.epub
+      run: npx honkit epub ./ ./_book/ebooks/${{ env.EBOOK_NAME }}.epub
     - name: 'Generating ebook in mobi'
-      run: npx honkit mobi ./ ./_book/ebooks/${{ env.ebook_name }}.mobi
+      run: npx honkit mobi ./ ./_book/ebooks/${{ env.EBOOK_NAME }}.mobi
     
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
