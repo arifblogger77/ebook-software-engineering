@@ -68,13 +68,14 @@ jobs:
     - name: 'Preparing for ebooks generations'
       run: |
         npx honkit build
+        mkdir ebooks
 
     - name: 'Generating ebook in pdf'
-      run: npx honkit pdf ./ ./_book/${{ env.ebook_name }}.pdf
+      run: npx honkit pdf ./ ./_book/ebooks/${{ env.ebook_name }}.pdf
     - name: 'Generating ebook in epub'
-      run: npx honkit epub ./ ./_book/${{ env.ebook_name }}.epub
+      run: npx honkit epub ./ ./_book/ebooks/${{ env.ebook_name }}.epub
     - name: 'Generating ebook in mobi'
-      run: npx honkit mobi ./ ./_book/${{ env.ebook_name }}.mobi
+      run: npx honkit mobi ./ ./_book/ebooks/${{ env.ebook_name }}.mobi
     
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
