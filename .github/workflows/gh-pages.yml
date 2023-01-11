@@ -53,6 +53,12 @@ jobs:
     - name: Installing 
       run: npm install honkit --save-dev
 
+    - name: Installing Prerequisite 
+      run: |
+        npm install honkit --save-dev
+        sudo -v apt-get update
+        apt-get install libgl1-mesa-glx
+
     - name: 'Installing calibre'
       run: |
         sudo -v
