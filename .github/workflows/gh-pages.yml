@@ -70,11 +70,11 @@ jobs:
         npx honkit build
 
     - name: 'Generating ebook in pdf'
-      run: honkit pdf ./ ./_book/${{ env.ebook_name }}.pdf
+      run: npx honkit pdf ./ ./_book/${{ env.ebook_name }}.pdf
     - name: 'Generating ebook in epub'
-      run: honkit epub ./ ./_book/${{ env.ebook_name }}.epub
+      run: npx honkit epub ./ ./_book/${{ env.ebook_name }}.epub
     - name: 'Generating ebook in mobi'
-      run: honkit mobi ./ ./_book/${{ env.ebook_name }}.mobi
+      run: npx honkit mobi ./ ./_book/${{ env.ebook_name }}.mobi
     
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
