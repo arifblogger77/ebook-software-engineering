@@ -34,4 +34,4 @@ jobs:
       # below accordingly.
       with:
         deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        publish_dir: ./public
+        publish_dir: ./_book
