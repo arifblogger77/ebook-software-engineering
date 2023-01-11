@@ -72,6 +72,7 @@ jobs:
     - name: 'Make folder ebooks'
       run: |
         mkdir ebooks
+        ls -a
 
     - name: 'Generating ebook in pdf'
       run: npx honkit pdf ./ ./_book/ebooks/${{ env.EBOOK_NAME }}.pdf
