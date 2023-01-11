@@ -20,8 +20,10 @@ jobs:
       with:
         node-version: 16
 
-    - name: Build
+    - name: Installing 
       run: npm install honkit --save-dev
+
+    - name: Build
       run: |
         npx honkit build
 
