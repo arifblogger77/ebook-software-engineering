@@ -1,0 +1,649 @@
+
+<!DOCTYPE HTML>
+<html lang="id" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Serverless Ebook Menggunakan Honkit, Github Pages, Github Action dan Calibre · Ebook - Software Engineering</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 4.0.8">
+        <meta name="author" content="Arif Nur Rochman">
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../../part-1/" />
+    
+    
+    <link rel="prev" href="ci-cd.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Pendahuluan</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Pendahuluan
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Dev Ops</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="ci-cd.html">
+            
+                <a href="ci-cd.html">
+            
+                    
+                    CI/CD
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.1.1" data-path="ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.html">
+            
+                <a href="ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.html">
+            
+                    
+                    Serverless Ebook Menggunakan Honkit, Github Pages, Github Action dan Calibre
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">PART 1</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../part-1/">
+            
+                <a href="../../part-1/">
+            
+                    
+                    PART 1
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../part-1/">
+            
+                <a href="../../part-1/#sub-introduction-part-1">
+            
+                    
+                    Sub Part 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">PART 2</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../part-2/">
+            
+                <a href="../../part-2/">
+            
+                    
+                    PART 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Serverless Ebook Menggunakan Honkit, Github Pages, Github Action dan Calibre</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="serverless-ebook-menggunakan-honkit-github-pages-github-action-dan-calibre">Serverless Ebook Menggunakan Honkit, Github Pages, Github Action dan Calibre</h1>
+<p>Tutorial kali ini kita akan membuat sebuah <em>instance</em> ebook menggunakan Github, kemudian di <em>publish</em> ke Github Pages secara otomatis setiap kali kita melakukan <em>push</em> yang di manajemen oleh Github Action, dan melakukan <em>deploy</em> web, serta file (<code>.pdf</code>, <code>.epub</code>, <code>.mobi</code>).</p>
+<blockquote>
+<p>Ebook ini adalah contohnya!</p>
+</blockquote>
+<p>Setiap kali melakukan <em>push</em>, Github Action (CI/CD) akan melakukan <em>trigger</em> (compile website dan membuat ebook), yang kemudian menghasilkan <code>gh-pages</code> <em>branch</em> yang aksesnya akan dibuat publik.</p>
+<hr>
+<h2 id="1-prasyarat">1. Prasyarat</h2>
+<h3 id="11-honkit">1.1. Honkit</h3>
+<p>Memasang Honkit (pastikan kalian memiliki <code>nodejs</code>), untuk langkahnya bisa mengunjungi (<a href="https://github.com/honkit/honkit" target="_blank">https://github.com/honkit/honkit</a>)</p>
+<h3 id="12-akun-github">1.2. Akun Github</h3>
+<p>Pastikan memiliki akun Github, apabila belum silahkan mendaftar di (<a href="https://github.com/signup" target="_blank">https://github.com/signup</a>)</p>
+<h3 id="13-git-klien">1.3. Git Klien</h3>
+<p>Pastikan memiliki Git klien, apabila belum silahkan mengunduh di (<a href="https://git-scm.com/" target="_blank">https://git-scm.com/</a>)</p>
+<hr>
+<h2 id="2-panduan">2. Panduan</h2>
+<h3 id="21-membuat-repository-github">2.1. Membuat Repository Github</h3>
+<p>Pertama buat repository Github baru di akun Githubmu, bebas mau publik ataupun pribadi. Untuk tutorial ini saya memilih <code>ebook-example</code> sebagai nama repository.
+<img src="../../../public/dev-ops/2.1.png" alt="dev-ops 2.1 Membuat Repository Github"></p>
+<h3 id="22-membuat-honkit-project-baru">2.2. Membuat Honkit Project Baru</h3>
+<p>Kemudian gunakan perintah <code>honkit</code> untuk menginisiasi projek baru. Disini saya menamakannya <code>ebook-example</code>, sama seperti nama repositorinya.</p>
+<pre><code class="lang-bash">mkdir ebook-example
+<span class="hljs-built_in">cd</span> ebook-example
+npm init --yes
+npm install honkit --save-dev <span class="hljs-comment"># apabila tidak menginstall secara global </span>
+npx honkit init
+npx honkit serve
+</code></pre>
+<p><img src="../../../public/dev-ops/2.2.png" alt="dev-ops 2.2 Membuat Honkit Project Baru">
+Sama seperti gambar di atas, versi web dari ebook telah berjalan.</p>
+<h3 id="23-menyiapkan-ssh-github-deploy-key">2.3. Menyiapkan SSH Github Deploy Key</h3>
+<p>Kemudian kita akan menggunakan <em>plugin</em> Github Action dari (<a href="https://github.com/peaceiris/actions-gh-pages" target="_blank">https://github.com/peaceiris/actions-gh-pages</a>) agar otomatis <em>push</em> dari repository Github ke <code>gh-pages</code> <em>branch</em>.</p>
+<p>Untuk mencoba skenario tersebut, pertama <em>generate</em> sepasang kunci SSH menggunakan perintah <code>ssh-keygen</code> di bawah ini. Kunci tersebut akan digunakan untuk sebagai Github <em>deploy key</em>.</p>
+<blockquote>
+<p>Pastikan sudah melakukan konfigurasi <code>git config user.email</code></p>
+<p>Pastikan projek sudah di <code>git init</code></p>
+</blockquote>
+<pre><code class="lang-bash">ssh-keygen -t rsa -b 4096 -C <span class="hljs-string">&quot;<span class="hljs-subst">$(git config user.email)</span>&quot;</span> -f gh-pages -N <span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-comment"># Akan ada 2 file:</span>
+<span class="hljs-comment">#   gh-pages.pub (public key)</span>
+<span class="hljs-comment">#   gh-pages     (private key)</span>
+</code></pre>
+<p>Perintah di atas akan membuat 2 file:</p>
+<ul>
+<li><code>gh-pages.pub</code> file adalah <em>key publik</em></li>
+<li><code>gh-pages</code> file adalah <em>key pribadi</em></li>
+</ul>
+<p>Unggah dua file itu ke dalam <em>repository project keys</em> dan <em>secret</em>. Untuk melakukannya, buka <em>repository</em>, klik <strong><code>Settings</code></strong>, kemudian ikuti langkah di bawah ini.
+<img src="../../../public/dev-ops/2.3.1.png" alt="dev-ops 2.3.1 Menyiapkan SSH Github Deploy Key Publik"></p>
+<blockquote>
+<p>Key Publik</p>
+</blockquote>
+<p><img src="../../../public/dev-ops/2.3.1-2.png" alt="dev-ops 2.3.1-2 Menyiapkan SSH Github Deploy Key Publik Sukses"></p>
+<blockquote>
+<p>Key Publik Sukses</p>
+</blockquote>
+<p><img src="../../../public/dev-ops/2.3.2.png" alt="dev-ops 2.3.2 Menyiapkan SSH Github Secret Key Pribadi"></p>
+<blockquote>
+<p>Key Pribadi</p>
+</blockquote>
+<p><img src="../../../public/dev-ops/2.3.2-2.png" alt="dev-ops 2.3.2-2 Menyiapkan SSH Github Secret Key Pribadi Sukses"></p>
+<blockquote>
+<p>Key Pribadi Sukses</p>
+</blockquote>
+<h3 id="24-membuat-file-alur-kerja-github-cicd-untuk-membuat-ebook-versi-web">2.4. Membuat File Alur Kerja Github CI/CD Untuk Membuat Ebook Versi Web</h3>
+<p>Sekarang kita akan membuat Github otomatis <em>deploy</em> ebook versi web setiap kali ada <em>push</em>. Kita akan mengaplikasikannya pada <em>push</em> yang pertama.
+Buat alur kerja baru dengan nama <code>gh-pages.yml</code> yang berada di <code>&lt;yourproject&gt;/.github/workflows</code>, kemudian tulis konfigurasi seperti di bawah ini:</p>
+<pre><code class="lang-yml"><span class="hljs-comment"># file ./ebook-example/.github/workflows/gh-pages.yml</span>
+
+<span class="hljs-attr">name:</span> <span class="hljs-string">&apos;deploy webiste and ebooks&apos;</span>
+
+<span class="hljs-attr">on:</span>
+  <span class="hljs-attr">push:</span>
+    <span class="hljs-attr">branches:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">main</span> <span class="hljs-comment"># branch name to trigger deployment</span>
+
+<span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">job_deploy_website:</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">&apos;deploy website&apos;</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+    <span class="hljs-attr">steps:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v3</span>
+      <span class="hljs-attr">with:</span>
+        <span class="hljs-attr">submodules:</span> <span class="hljs-literal">true</span>  <span class="hljs-comment"># Fetch Hugo themes (true OR recursive)</span>
+        <span class="hljs-attr">fetch-depth:</span> <span class="hljs-number">0</span>    <span class="hljs-comment"># Fetch all history for .GitInfo and .Lastmod</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">Node</span>
+      <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-node@v3</span>
+      <span class="hljs-attr">with:</span>
+        <span class="hljs-attr">node-version:</span> <span class="hljs-number">16</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Installing</span> 
+      <span class="hljs-attr">run:</span> <span class="hljs-string">npm</span> <span class="hljs-string">install</span> <span class="hljs-string">honkit</span> <span class="hljs-string">--save-dev</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Build</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">|
+        npx honkit build
+        # cp ./CNAME _book/CNAME
+</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Deploy</span>
+      <span class="hljs-attr">uses:</span> <span class="hljs-string">peaceiris/actions-gh-pages@v3</span>
+      <span class="hljs-comment"># If you&apos;re changing the branch from main,</span>
+      <span class="hljs-comment"># also change the `main` in `refs/heads/main`</span>
+      <span class="hljs-comment"># below accordingly.</span>
+      <span class="hljs-attr">with:</span>
+        <span class="hljs-attr">deploy_key:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.ACTIONS_DEPLOY_KEY</span> <span class="hljs-string">}}</span>
+        <span class="hljs-attr">publish_dir:</span> <span class="hljs-string">./_book</span>
+</code></pre>
+<p>Secara garis besar, workflow diatas akan melakukan:</p>
+<ul>
+<li>Trigger workflow setiap kali ada push di branch main</li>
+<li>Menginstall <code>node js</code></li>
+<li>Menginstall <code>honkit</code></li>
+<li>Membuild projek</li>
+<li>Menggunakan plugin <code>peaceiris/actions-gh-pages</code> untuk deploy ke branch gh-pages.</li>
+</ul>
+<h3 id="25-push-projek-ke-repositori-github">2.5. Push Projek Ke Repositori Github</h3>
+<pre><code class="lang-bash"><span class="hljs-comment"># Pastikan lokasi di ./ebook-example</span>
+
+<span class="hljs-comment"># Mengabaikan beberapa direktori</span>
+touch .gitignore
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;_book&apos;</span> &gt;&gt; .gitignore
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;node_modules&apos;</span> &gt;&gt; .gitignore
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;gh-pages&apos;</span> &gt;&gt; .gitignore
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;gh-pages.pub&apos;</span> &gt;&gt; .gitignore
+
+<span class="hljs-comment"># Inisiasi repositori git</span>
+git init
+git add .
+git commit -m <span class="hljs-string">&quot;init&quot;</span>
+git branch -M main
+git remote add origin https://github.com/arifblogger77/ebook-example.git
+
+<span class="hljs-comment"># Push</span>
+git push -u origin main
+</code></pre>
+<p>Kembali ke browser, buka repositori Githubmu, klik <code>Actions</code> lihat proses workflow yang berjalan.
+<img src="../../../public/dev-ops/2.5.1.png" alt="dev-ops 2.5.1 Melihat tab Actions"></p>
+<p>Setelah workflow selesai, kemudian buka di browser mengikuti URL berikut.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># https://&lt;github-username&gt;.github.io/&lt;repo-name&gt;</span>
+https://arifblogger77.github.io/ebook-example
+</code></pre>
+<p><img src="../../../public/dev-ops/2.5.2.png" alt="dev-ops 2.5.2 Tampilan Ebook"></p>
+<p>Jika masih ragu apakah URL tersebut benar, buka menu <code>Settings</code> kemudian pilih <code>Pages</code> dan klik <code>Visit site</code>
+<img src="../../../public/dev-ops/2.5.3.png" alt="dev-ops 2.5.3 URL Github Pages"></p>
+<h3 id="26-memodifikasi-workflow-agar-menghasilkan-file-ebook">2.6 Memodifikasi Workflow Agar Menghasilkan File Ebook</h3>
+<p>Kita akan memodifikasi workflow agar bisa menghasilkan file ebook (<code>.pdf</code>, <code>.epub</code>, <code>.mobi</code>).
+Buka kembali file <code>gh-pages.yml</code>, kemudian tambahkan job <code>job_deploy_ebooks</code>.</p>
+<p>Sebelum itu kita perlu melakukan setting <code>EBOOK_NAME</code> terlebih dahulu. Buka <code>Settings</code> pilih <code>Secrets and variables</code> kemudian pilih <code>Actions</code>, klik tab <code>Variables</code> dan klik <code>New repository variable</code>.</p>
+<p><img src="../../../public/dev-ops/2.6.1.png" alt="dev-ops 2.6.1 Halaman Setting Variable"></p>
+<p>Contoh pengisian seperti berikut ini
+<img src="../../../public/dev-ops/2.6.2.png" alt="dev-ops 2.6.2 Mengisi Variabel Ebook Name"></p>
+<p>Selanjutnya pada bagian yang <code>Environtment variable</code> klik <code>Manage environtments</code>
+<img src="../../../public/dev-ops/2.6.3.png" alt="dev-ops 2.6.3 Halaman Setting Environtment Variable"></p>
+<p>Klik <code>github-pages</code> pada halaman Environtments
+<img src="../../../public/dev-ops/2.6.4.png" alt="dev-ops 2.6.4 Halaman Environtmens"></p>
+<p>Lakukan pengisian seperti berikut
+<img src="../../../public/dev-ops/2.6.5.png" alt="dev-ops 2.6.5 Mengisi Variabel Ebook Name di Environtment"></p>
+<pre><code class="lang-yml"><span class="hljs-comment"># file ./ebook-example/.github/workflows/gh-pages.yml</span>
+
+<span class="hljs-attr">name:</span> <span class="hljs-string">&apos;deploy webiste and ebooks&apos;</span>
+
+<span class="hljs-attr">on:</span>
+  <span class="hljs-attr">push:</span>
+    <span class="hljs-attr">branches:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">main</span> <span class="hljs-comment"># branch name to trigger deployment</span>
+
+<span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">job_deploy_website:</span>
+    <span class="hljs-comment"># ...</span>
+
+  <span class="hljs-attr">job_deploy_ebooks:</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">&apos;deploy ebooks&apos;</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+    <span class="hljs-attr">steps:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v3</span>
+      <span class="hljs-attr">with:</span>
+        <span class="hljs-attr">submodules:</span> <span class="hljs-literal">true</span>  <span class="hljs-comment"># Fetch Hugo themes (true OR recursive)</span>
+        <span class="hljs-attr">fetch-depth:</span> <span class="hljs-number">0</span>    <span class="hljs-comment"># Fetch all history for .GitInfo and .Lastmod</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">Node</span>
+      <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-node@v3</span>
+      <span class="hljs-attr">with:</span>
+        <span class="hljs-attr">node-version:</span> <span class="hljs-number">16</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Installing</span> 
+      <span class="hljs-attr">run:</span> <span class="hljs-string">npm</span> <span class="hljs-string">install</span> <span class="hljs-string">honkit</span> <span class="hljs-string">--save-dev</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Installing</span> <span class="hljs-string">Prerequisite</span> 
+      <span class="hljs-attr">run:</span> <span class="hljs-string">|
+        npm install honkit --save-dev
+        sudo apt-get update
+        sudo apt-get install -y libgl1-mesa-glx
+        sudo apt-get install -y ocl-icd-opencl-dev
+</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">&apos;Installing calibre&apos;</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">|
+        sudo -v
+        wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
+</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">&apos;Preparing for ebooks generations&apos;</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">|
+        npx honkit build
+</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">&apos;Make folder ebooks&apos;</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">|
+        cd _book
+        mkdir ebooks
+        ls -a
+        cd ../
+</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">&apos;Generating ebook in pdf&apos;</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">npx</span> <span class="hljs-string">honkit</span> <span class="hljs-string">pdf</span> <span class="hljs-string">./</span> <span class="hljs-string">./_book/ebooks/ebook${{</span> <span class="hljs-string">env.EBOOK_NAME</span> <span class="hljs-string">}}.pdf</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">&apos;Generating ebook in epub&apos;</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">npx</span> <span class="hljs-string">honkit</span> <span class="hljs-string">epub</span> <span class="hljs-string">./</span> <span class="hljs-string">./_book/ebooks/ebook${{</span> <span class="hljs-string">env.EBOOK_NAME</span> <span class="hljs-string">}}.epub</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">&apos;Generating ebook in mobi&apos;</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">npx</span> <span class="hljs-string">honkit</span> <span class="hljs-string">mobi</span> <span class="hljs-string">./</span> <span class="hljs-string">./_book/ebooks/ebook${{</span> <span class="hljs-string">env.EBOOK_NAME</span> <span class="hljs-string">}}.mobi</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Deploy</span>
+      <span class="hljs-attr">uses:</span> <span class="hljs-string">peaceiris/actions-gh-pages@v3</span>
+      <span class="hljs-comment"># If you&apos;re changing the branch from main,</span>
+      <span class="hljs-comment"># also change the `main` in `refs/heads/main`</span>
+      <span class="hljs-comment"># below accordingly.</span>
+      <span class="hljs-attr">with:</span>
+        <span class="hljs-attr">deploy_key:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.ACTIONS_DEPLOY_KEY</span> <span class="hljs-string">}}</span>
+        <span class="hljs-attr">publish_dir:</span> <span class="hljs-string">./_book</span>
+</code></pre>
+<p><code>job_deploy_website</code> akan menghasilkan ebook berbasis website, sedangkan <code>job_deploy_ebooks</code> menghasilkan ebook berupa file seperti <code>.pdf</code>, <code>.mobi</code>, <code>.epub</code>. Proses tersebut dibantu oleh <strong>Calibre</strong>.</p>
+<p>Baik, selanjutnya kita push lagi.</p>
+<pre><code class="lang-bash">git add .
+git commit -m <span class="hljs-string">&quot;update&quot;</span>
+git push origin main
+</code></pre>
+<p>Kita lihat kembali di <code>Actions</code> sekarang ada job <code>deploy ebooks</code>
+<img src="../../../public/dev-ops/2.6.6.png" alt="dev-ops 2.6.6 Halaman Actions"></p>
+<p>Hasil dari file ebooknya bisa kita lihat di folder <code>ebook</code>
+<img src="../../../public/dev-ops/2.6.7.png" alt="dev-ops 2.6.7 File Ebook"></p>
+<p>Untuk direct download mengikuti format URL di bawah ini</p>
+<pre><code class="lang-bash">https://raw.githubusercontent.com/&lt;yourusername&gt;/&lt;yourrepo&gt;/&lt;yourbranch&gt;/&lt;yourfolder&gt;/&lt;file&gt;.&lt;extension&gt;
+
+https://raw.githubusercontent.com/arifblogger77/ebook-example/gh-pages/ebooks/ebook.pdf
+https://raw.githubusercontent.com/arifblogger77/ebook-example/gh-pages/ebooks/ebook.mobi
+https://raw.githubusercontent.com/arifblogger77/ebook-example/gh-pages/ebooks/ebook.epub
+</code></pre>
+<h3 id="27-menambahkan-domain-kustom">2.7 Menambahkan Domain Kustom</h3>
+<p>Bersifat opsional namun penting, Oke. Mari mencoba menambahkan kustom domain ke Github Pages. Silahkan kalian buka Control Panel domain kalian, tambahkan <code>CNAME</code> baru yang terhubung ke Github page domain <code>&lt;github-username&gt;.github.io</code>.</p>
+<pre><code>Name: ebook.krearive.com
+Value: arifblogger77.github.io
+</code></pre><p>Selanjutnya kita buat file bernama <code>CNAME</code></p>
+<pre><code class="lang-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;ebook.krearive.com&apos;</span> &gt; CNAME
+</code></pre>
+<p>File <code>CNAME</code> harus di copy kee <code>_book</code> agar ikut ke branch <code>gh-pages</code>. Caranya cukup <em>uncomment</em> <code>cp ./CNAME _book/CNAME</code></p>
+<pre><code class="lang-yml"><span class="hljs-comment"># file ./ebook-example/.github/workflows/gh-pages.yml</span>
+
+<span class="hljs-attr">name:</span> <span class="hljs-string">&apos;deploy webiste and ebooks&apos;</span>
+
+<span class="hljs-attr">on:</span>
+  <span class="hljs-attr">push:</span>
+    <span class="hljs-attr">branches:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">main</span> <span class="hljs-comment"># branch name to trigger deployment</span>
+
+<span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">job_deploy_website:</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">&apos;deploy website&apos;</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+    <span class="hljs-attr">steps:</span>
+    <span class="hljs-comment"># ...</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Build</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">|
+        npx honkit build
+        cp ./CNAME _book/CNAME
+</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Deploy</span>
+      <span class="hljs-comment"># ...</span>
+</code></pre>
+<p>Boom sekarang Github Pages sudah berubah menjadi domain kustom.
+<img src="../../../public/dev-ops/2.7.png" alt="dev-ops 2.7 Kustom Domain"></p>
+<h3 id="28-aktifkan-sslhttps-di-github-page">2.8 Aktifkan SSL/HTTPS di Github Page</h3>
+<p>Buka tab <code>Settings</code> pilih <code>Pages</code> dan centang <code>Enforce HTTPS</code>
+<img src="../../../public/dev-ops/2.8.png" alt="dev-ops 2.8 Aktifkan HTTPS"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ci-cd.html" class="navigation navigation-prev " aria-label="Previous page: CI/CD">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../../part-1/" class="navigation navigation-next " aria-label="Next page: PART 1">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Serverless Ebook Menggunakan Honkit, Github Pages, Github Action dan Calibre","level":"2.1.1","depth":2,"next":{"title":"PART 1","level":"3.1","depth":1,"path":"part-1/README.md","ref":"part-1/README.md","articles":[{"title":"Sub Part 1","level":"3.1.1","depth":2,"anchor":"#sub-introduction-part-1","path":"part-1/README.md","ref":"part-1/README.md#sub-introduction-part-1","articles":[]}]},"previous":{"title":"CI/CD","level":"2.1","depth":1,"path":"dev-ops/ci-cd/ci-cd.md","ref":"dev-ops/ci-cd/ci-cd.md","articles":[{"title":"Serverless Ebook Menggunakan Honkit, Github Pages, Github Action dan Calibre","level":"2.1.1","depth":2,"path":"dev-ops/ci-cd/ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.md","ref":"dev-ops/ci-cd/ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Arif Nur Rochman","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Ebook - Software Engineering","language":"id","gitbook":"*"},"file":{"path":"dev-ops/ci-cd/ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.md","mtime":"2023-08-01T10:04:28.307Z","type":"markdown"},"gitbook":{"version":"4.0.8","time":"2023-08-01T10:04:34.946Z"},"basePath":"../..","book":{"language":"id"}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
