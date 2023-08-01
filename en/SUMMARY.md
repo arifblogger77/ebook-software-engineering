@@ -4,6 +4,10 @@
 
 * [Introduction](README.md)
 
+### Dev Ops
+
+* [CI/CD](dev-ops/ci-cd/ci-cd.md)
+  * [Serverless Ebook Using Honkit, Github Pages, Github Action and Calibre](dev-ops/ci-cd/ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.md)
 ### PART 1
 
 * [PART 1](part-1/README.md)
