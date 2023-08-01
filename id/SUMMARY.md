@@ -1,8 +1,13 @@
 # Summary
 
-### Introduction
+### Pendahuluan
 
-* [Introduction](README.md)
+* [Pendahuluan](README.md)
+
+### Dev Ops
+
+* [CI/CD](dev-ops/ci-cd/ci-cd.md)
+  * [Serverless Ebook Menggunakan Honkit, Github Pages, Github Action dan Calibre](dev-ops/ci-cd/ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.md)
 
 ### PART 1
 
