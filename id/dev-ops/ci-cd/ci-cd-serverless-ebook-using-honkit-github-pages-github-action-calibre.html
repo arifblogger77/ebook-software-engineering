@@ -354,13 +354,13 @@ Buat alur kerja baru dengan nama <code>gh-pages.yml</code> yang berada di <code>
         <span class="hljs-attr">deploy_key:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.ACTIONS_DEPLOY_KEY</span> <span class="hljs-string">}}</span>
         <span class="hljs-attr">publish_dir:</span> <span class="hljs-string">./_book</span>
 </code></pre>
-<p>Secara garis besar, workflow diatas akan melakukan:</p>
+<p>Secara garis besar, <em>workflow</em> diatas akan melakukan:</p>
 <ul>
-<li>Trigger workflow setiap kali ada push di branch main</li>
+<li>Trigger <em>workflow</em> setiap kali ada <em>push</em> di <em>branch</em> <code>main</code></li>
 <li>Menginstall <code>node js</code></li>
 <li>Menginstall <code>honkit</code></li>
 <li>Membuild projek</li>
-<li>Menggunakan plugin <code>peaceiris/actions-gh-pages</code> untuk deploy ke branch gh-pages.</li>
+<li>Menggunakan plugin <code>peaceiris/actions-gh-pages</code> untuk <em>deploy</em> ke <em>branch</em> <code>gh-pages</code>.</li>
 </ul>
 <h3 id="25-push-projek-ke-repositori-github">2.5. Push Projek Ke Repositori Github</h3>
 <pre><code class="lang-bash"><span class="hljs-comment"># Pastikan lokasi di ./ebook-example</span>
@@ -382,25 +382,25 @@ git remote add origin https://github.com/arifblogger77/ebook-example.git
 <span class="hljs-comment"># Push</span>
 git push -u origin main
 </code></pre>
-<p>Kembali ke browser, buka repositori Githubmu, klik <code>Actions</code> lihat proses workflow yang berjalan.
+<p>Kembali ke browser, buka repositori Githubmu, klik <code>Actions</code> lihat proses <em>workflow</em> yang berjalan.
 <img src="../../../public/dev-ops/2.5.1.png" alt="dev-ops 2.5.1 Melihat tab Actions"></p>
-<p>Setelah workflow selesai, kemudian buka di browser mengikuti URL berikut.</p>
+<p>Setelah <em>workflow</em> selesai, kemudian buka di browser mengikuti <em>URL</em> berikut.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># https://&lt;github-username&gt;.github.io/&lt;repo-name&gt;</span>
 https://arifblogger77.github.io/ebook-example
 </code></pre>
 <p><img src="../../../public/dev-ops/2.5.2.png" alt="dev-ops 2.5.2 Tampilan Ebook"></p>
-<p>Jika masih ragu apakah URL tersebut benar, buka menu <code>Settings</code> kemudian pilih <code>Pages</code> dan klik <code>Visit site</code>
+<p>Jika masih ragu apakah <em>URL</em> tersebut benar, buka menu <code>Settings</code> kemudian pilih <code>Pages</code> dan klik <code>Visit site</code>
 <img src="../../../public/dev-ops/2.5.3.png" alt="dev-ops 2.5.3 URL Github Pages"></p>
 <h3 id="26-memodifikasi-workflow-agar-menghasilkan-file-ebook">2.6 Memodifikasi Workflow Agar Menghasilkan File Ebook</h3>
-<p>Kita akan memodifikasi workflow agar bisa menghasilkan file ebook (<code>.pdf</code>, <code>.epub</code>, <code>.mobi</code>).
-Buka kembali file <code>gh-pages.yml</code>, kemudian tambahkan job <code>job_deploy_ebooks</code>.</p>
-<p>Sebelum itu kita perlu melakukan setting <code>EBOOK_NAME</code> terlebih dahulu. Buka <code>Settings</code> pilih <code>Secrets and variables</code> kemudian pilih <code>Actions</code>, klik tab <code>Variables</code> dan klik <code>New repository variable</code>.</p>
+<p>Kita akan memodifikasi <em>workflow</em> agar bisa menghasilkan file ebook (<code>.pdf</code>, <code>.epub</code>, <code>.mobi</code>).
+Buka kembali <em>file</em> <code>gh-pages.yml</code>, kemudian tambahkan <em>job</em> <code>job_deploy_ebooks</code>.</p>
+<p>Sebelum itu kita perlu melakukan <em>setting</em> <code>EBOOK_NAME</code> terlebih dahulu. Buka <code>Settings</code> pilih <code>Secrets and variables</code> kemudian pilih <code>Actions</code>, klik tab <code>Variables</code> dan klik <code>New repository variable</code>.</p>
 <p><img src="../../../public/dev-ops/2.6.1.png" alt="dev-ops 2.6.1 Halaman Setting Variable"></p>
 <p>Contoh pengisian seperti berikut ini
 <img src="../../../public/dev-ops/2.6.2.png" alt="dev-ops 2.6.2 Mengisi Variabel Ebook Name"></p>
 <p>Selanjutnya pada bagian yang <code>Environtment variable</code> klik <code>Manage environtments</code>
 <img src="../../../public/dev-ops/2.6.3.png" alt="dev-ops 2.6.3 Halaman Setting Environtment Variable"></p>
-<p>Klik <code>github-pages</code> pada halaman Environtments
+<p>Klik <code>github-pages</code> pada halaman <em>Environtments</em>
 <img src="../../../public/dev-ops/2.6.4.png" alt="dev-ops 2.6.4 Halaman Environtmens"></p>
 <p>Lakukan pengisian seperti berikut
 <img src="../../../public/dev-ops/2.6.5.png" alt="dev-ops 2.6.5 Mengisi Variabel Ebook Name di Environtment"></p>
@@ -473,17 +473,17 @@ Buka kembali file <code>gh-pages.yml</code>, kemudian tambahkan job <code>job_de
         <span class="hljs-attr">deploy_key:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.ACTIONS_DEPLOY_KEY</span> <span class="hljs-string">}}</span>
         <span class="hljs-attr">publish_dir:</span> <span class="hljs-string">./_book</span>
 </code></pre>
-<p><code>job_deploy_website</code> akan menghasilkan ebook berbasis website, sedangkan <code>job_deploy_ebooks</code> menghasilkan ebook berupa file seperti <code>.pdf</code>, <code>.mobi</code>, <code>.epub</code>. Proses tersebut dibantu oleh <strong>Calibre</strong>.</p>
-<p>Baik, selanjutnya kita push lagi.</p>
+<p><code>job_deploy_website</code> akan menghasilkan ebook berbasis website, sedangkan <code>job_deploy_ebooks</code> menghasilkan ebook berupa <em>file</em> seperti <code>.pdf</code>, <code>.mobi</code>, <code>.epub</code>. Proses tersebut dibantu oleh <strong>Calibre</strong>.</p>
+<p>Baik, selanjutnya kita <em>push</em> lagi.</p>
 <pre><code class="lang-bash">git add .
 git commit -m <span class="hljs-string">&quot;update&quot;</span>
 git push origin main
 </code></pre>
 <p>Kita lihat kembali di <code>Actions</code> sekarang ada job <code>deploy ebooks</code>
 <img src="../../../public/dev-ops/2.6.6.png" alt="dev-ops 2.6.6 Halaman Actions"></p>
-<p>Hasil dari file ebooknya bisa kita lihat di folder <code>ebook</code>
+<p>Hasil dari <em>file</em> ebooknya bisa kita lihat di folder <code>ebook</code>
 <img src="../../../public/dev-ops/2.6.7.png" alt="dev-ops 2.6.7 File Ebook"></p>
-<p>Untuk direct download mengikuti format URL di bawah ini</p>
+<p>Untuk <em>direct download</em> mengikuti <em>format URL</em> di bawah ini</p>
 <pre><code class="lang-bash">https://raw.githubusercontent.com/&lt;yourusername&gt;/&lt;yourrepo&gt;/&lt;yourbranch&gt;/&lt;yourfolder&gt;/&lt;file&gt;.&lt;extension&gt;
 
 https://raw.githubusercontent.com/arifblogger77/ebook-example/gh-pages/ebooks/ebook.pdf
@@ -491,13 +491,13 @@ https://raw.githubusercontent.com/arifblogger77/ebook-example/gh-pages/ebooks/eb
 https://raw.githubusercontent.com/arifblogger77/ebook-example/gh-pages/ebooks/ebook.epub
 </code></pre>
 <h3 id="27-menambahkan-domain-kustom">2.7 Menambahkan Domain Kustom</h3>
-<p>Bersifat opsional namun penting, Oke. Mari mencoba menambahkan kustom domain ke Github Pages. Silahkan kalian buka Control Panel domain kalian, tambahkan <code>CNAME</code> baru yang terhubung ke Github page domain <code>&lt;github-username&gt;.github.io</code>.</p>
+<p>Bersifat opsional namun penting, Oke. Mari mencoba menambahkan kustom domain ke <em>Github Pages</em>. Silahkan kalian buka <em>Control Panel</em> domain kalian, tambahkan <code>CNAME</code> baru yang terhubung ke <em>Github page domain</em> <code>&lt;github-username&gt;.github.io</code>.</p>
 <pre><code>Name: ebook.krearive.com
 Value: arifblogger77.github.io
-</code></pre><p>Selanjutnya kita buat file bernama <code>CNAME</code></p>
+</code></pre><p>Selanjutnya kita buat <em>file</em> bernama <code>CNAME</code></p>
 <pre><code class="lang-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;ebook.krearive.com&apos;</span> &gt; CNAME
 </code></pre>
-<p>File <code>CNAME</code> harus di copy kee <code>_book</code> agar ikut ke branch <code>gh-pages</code>. Caranya cukup <em>uncomment</em> <code>cp ./CNAME _book/CNAME</code></p>
+<p><em>File</em> <code>CNAME</code> harus di <em>copy</em> ke <code>_book</code> agar ikut ke branch <code>gh-pages</code>. Caranya cukup <em>uncomment</em> <code>cp ./CNAME _book/CNAME</code></p>
 <pre><code class="lang-yml"><span class="hljs-comment"># file ./ebook-example/.github/workflows/gh-pages.yml</span>
 
 <span class="hljs-attr">name:</span> <span class="hljs-string">&apos;deploy webiste and ebooks&apos;</span>
@@ -522,7 +522,7 @@ Value: arifblogger77.github.io
     <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Deploy</span>
       <span class="hljs-comment"># ...</span>
 </code></pre>
-<p>Boom sekarang Github Pages sudah berubah menjadi domain kustom.
+<p><em>Boom</em> sekarang <em>Github Pages</em> sudah berubah menjadi domain kustom.
 <img src="../../../public/dev-ops/2.7.png" alt="dev-ops 2.7 Kustom Domain"></p>
 <h3 id="28-aktifkan-sslhttps-di-github-page">2.8 Aktifkan SSL/HTTPS di Github Page</h3>
 <p>Buka tab <code>Settings</code> pilih <code>Pages</code> dan centang <code>Enforce HTTPS</code>
@@ -570,7 +570,7 @@ Value: arifblogger77.github.io
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Serverless Ebook Menggunakan Honkit, Github Pages, Github Action dan Calibre","level":"2.1.1","depth":2,"next":{"title":"PART 1","level":"3.1","depth":1,"path":"part-1/README.md","ref":"part-1/README.md","articles":[{"title":"Sub Part 1","level":"3.1.1","depth":2,"anchor":"#sub-introduction-part-1","path":"part-1/README.md","ref":"part-1/README.md#sub-introduction-part-1","articles":[]}]},"previous":{"title":"CI/CD","level":"2.1","depth":1,"path":"dev-ops/ci-cd/ci-cd.md","ref":"dev-ops/ci-cd/ci-cd.md","articles":[{"title":"Serverless Ebook Menggunakan Honkit, Github Pages, Github Action dan Calibre","level":"2.1.1","depth":2,"path":"dev-ops/ci-cd/ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.md","ref":"dev-ops/ci-cd/ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Arif Nur Rochman","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Ebook - Software Engineering","language":"id","gitbook":"*"},"file":{"path":"dev-ops/ci-cd/ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.md","mtime":"2023-08-01T10:07:48.101Z","type":"markdown"},"gitbook":{"version":"4.0.8","time":"2023-08-01T10:08:39.105Z"},"basePath":"../..","book":{"language":"id"}});
+            gitbook.page.hasChanged({"page":{"title":"Serverless Ebook Menggunakan Honkit, Github Pages, Github Action dan Calibre","level":"2.1.1","depth":2,"next":{"title":"PART 1","level":"3.1","depth":1,"path":"part-1/README.md","ref":"part-1/README.md","articles":[{"title":"Sub Part 1","level":"3.1.1","depth":2,"anchor":"#sub-introduction-part-1","path":"part-1/README.md","ref":"part-1/README.md#sub-introduction-part-1","articles":[]}]},"previous":{"title":"CI/CD","level":"2.1","depth":1,"path":"dev-ops/ci-cd/ci-cd.md","ref":"dev-ops/ci-cd/ci-cd.md","articles":[{"title":"Serverless Ebook Menggunakan Honkit, Github Pages, Github Action dan Calibre","level":"2.1.1","depth":2,"path":"dev-ops/ci-cd/ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.md","ref":"dev-ops/ci-cd/ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Arif Nur Rochman","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Ebook - Software Engineering","language":"id","gitbook":"*"},"file":{"path":"dev-ops/ci-cd/ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.md","mtime":"2023-08-02T02:48:55.424Z","type":"markdown"},"gitbook":{"version":"4.0.8","time":"2023-08-02T02:48:58.511Z"},"basePath":"../..","book":{"language":"id"}});
         });
     </script>
 </div>
