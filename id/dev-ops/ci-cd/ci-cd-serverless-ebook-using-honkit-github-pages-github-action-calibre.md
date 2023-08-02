@@ -115,12 +115,12 @@ jobs:
         publish_dir: ./_book
 
 ```
-Secara garis besar, workflow diatas akan melakukan:
-- Trigger workflow setiap kali ada push di branch main
+Secara garis besar, _workflow_ diatas akan melakukan:
+- Trigger _workflow_ setiap kali ada _push_ di _branch_ `main`
 - Menginstall `node js`
 - Menginstall `honkit`
 - Membuild projek
-- Menggunakan plugin `peaceiris/actions-gh-pages` untuk deploy ke branch gh-pages.
+- Menggunakan plugin `peaceiris/actions-gh-pages` untuk _deploy_ ke _branch_ `gh-pages`.
 
 ### 2.5. Push Projek Ke Repositori Github
 ```bash
@@ -143,24 +143,24 @@ git remote add origin https://github.com/arifblogger77/ebook-example.git
 # Push
 git push -u origin main
 ```
-Kembali ke browser, buka repositori Githubmu, klik `Actions` lihat proses workflow yang berjalan.
+Kembali ke browser, buka repositori Githubmu, klik `Actions` lihat proses _workflow_ yang berjalan.
 ![dev-ops 2.5.1 Melihat tab Actions](../../../public/dev-ops/2.5.1.png)
 
-Setelah workflow selesai, kemudian buka di browser mengikuti URL berikut.
+Setelah _workflow_ selesai, kemudian buka di browser mengikuti _URL_ berikut.
 ```bash
 # https://<github-username>.github.io/<repo-name>
 https://arifblogger77.github.io/ebook-example
 ```
 ![dev-ops 2.5.2 Tampilan Ebook](../../../public/dev-ops/2.5.2.png)
 
-Jika masih ragu apakah URL tersebut benar, buka menu `Settings` kemudian pilih `Pages` dan klik `Visit site`
+Jika masih ragu apakah _URL_ tersebut benar, buka menu `Settings` kemudian pilih `Pages` dan klik `Visit site`
 ![dev-ops 2.5.3 URL Github Pages](../../../public/dev-ops/2.5.3.png)
 
 ### 2.6 Memodifikasi Workflow Agar Menghasilkan File Ebook
-Kita akan memodifikasi workflow agar bisa menghasilkan file ebook (`.pdf`, `.epub`, `.mobi`).
-Buka kembali file `gh-pages.yml`, kemudian tambahkan job `job_deploy_ebooks`.
+Kita akan memodifikasi _workflow_ agar bisa menghasilkan file ebook (`.pdf`, `.epub`, `.mobi`).
+Buka kembali _file_ `gh-pages.yml`, kemudian tambahkan _job_ `job_deploy_ebooks`.
 
-Sebelum itu kita perlu melakukan setting `EBOOK_NAME` terlebih dahulu. Buka `Settings` pilih `Secrets and variables` kemudian pilih `Actions`, klik tab `Variables` dan klik `New repository variable`.
+Sebelum itu kita perlu melakukan _setting_ `EBOOK_NAME` terlebih dahulu. Buka `Settings` pilih `Secrets and variables` kemudian pilih `Actions`, klik tab `Variables` dan klik `New repository variable`.
 
 ![dev-ops 2.6.1 Halaman Setting Variable](../../../public/dev-ops/2.6.1.png)
 
@@ -170,7 +170,7 @@ Contoh pengisian seperti berikut ini
 Selanjutnya pada bagian yang `Environtment variable` klik `Manage environtments`
 ![dev-ops 2.6.3 Halaman Setting Environtment Variable](../../../public/dev-ops/2.6.3.png)
 
-Klik `github-pages` pada halaman Environtments
+Klik `github-pages` pada halaman _Environtments_
 ![dev-ops 2.6.4 Halaman Environtmens](../../../public/dev-ops/2.6.4.png)
 
 Lakukan pengisian seperti berikut
@@ -247,9 +247,9 @@ jobs:
         publish_dir: ./_book
 ```
 
-`job_deploy_website` akan menghasilkan ebook berbasis website, sedangkan `job_deploy_ebooks` menghasilkan ebook berupa file seperti `.pdf`, `.mobi`, `.epub`. Proses tersebut dibantu oleh __Calibre__.
+`job_deploy_website` akan menghasilkan ebook berbasis website, sedangkan `job_deploy_ebooks` menghasilkan ebook berupa _file_ seperti `.pdf`, `.mobi`, `.epub`. Proses tersebut dibantu oleh __Calibre__.
 
-Baik, selanjutnya kita push lagi.
+Baik, selanjutnya kita _push_ lagi.
 ```bash
 git add .
 git commit -m "update"
@@ -258,10 +258,10 @@ git push origin main
 Kita lihat kembali di `Actions` sekarang ada job `deploy ebooks`
 ![dev-ops 2.6.6 Halaman Actions](../../../public/dev-ops/2.6.6.png)
 
-Hasil dari file ebooknya bisa kita lihat di folder `ebook`
+Hasil dari _file_ ebooknya bisa kita lihat di folder `ebook`
 ![dev-ops 2.6.7 File Ebook](../../../public/dev-ops/2.6.7.png)
 
-Untuk direct download mengikuti format URL di bawah ini
+Untuk _direct download_ mengikuti _format URL_ di bawah ini
 ```bash
 https://raw.githubusercontent.com/<yourusername>/<yourrepo>/<yourbranch>/<yourfolder>/<file>.<extension>
 
@@ -271,18 +271,18 @@ https://raw.githubusercontent.com/arifblogger77/ebook-example/gh-pages/ebooks/eb
 ```
 
 ### 2.7 Menambahkan Domain Kustom
-Bersifat opsional namun penting, Oke. Mari mencoba menambahkan kustom domain ke Github Pages. Silahkan kalian buka Control Panel domain kalian, tambahkan `CNAME` baru yang terhubung ke Github page domain `<github-username>.github.io`.
+Bersifat opsional namun penting, Oke. Mari mencoba menambahkan kustom domain ke _Github Pages_. Silahkan kalian buka _Control Panel_ domain kalian, tambahkan `CNAME` baru yang terhubung ke _Github page domain_ `<github-username>.github.io`.
 
 ```
 Name: ebook.krearive.com
 Value: arifblogger77.github.io
 ```
 
-Selanjutnya kita buat file bernama `CNAME`
+Selanjutnya kita buat _file_ bernama `CNAME`
 ```bash
 echo 'ebook.krearive.com' > CNAME
 ```
-File `CNAME` harus di copy kee `_book` agar ikut ke branch `gh-pages`. Caranya cukup _uncomment_ `cp ./CNAME _book/CNAME`
+_File_ `CNAME` harus di _copy_ ke `_book` agar ikut ke branch `gh-pages`. Caranya cukup _uncomment_ `cp ./CNAME _book/CNAME`
 ```yml
 # file ./ebook-example/.github/workflows/gh-pages.yml
 
@@ -309,7 +309,7 @@ jobs:
       # ...
 ```
 
-Boom sekarang Github Pages sudah berubah menjadi domain kustom.
+_Boom_ sekarang _Github Pages_ sudah berubah menjadi domain kustom.
 ![dev-ops 2.7 Kustom Domain](../../../public/dev-ops/2.7.png)
 
 ### 2.8 Aktifkan SSL/HTTPS di Github Page
