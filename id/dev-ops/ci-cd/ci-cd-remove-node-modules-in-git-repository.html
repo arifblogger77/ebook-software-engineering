@@ -3,7 +3,7 @@
 <html lang="id" >
     <head>
         <meta charset="UTF-8">
-        <title>CI/CD · Ebook - Software Engineering</title>
+        <title>Menghapus Node Modules di Git Repositori · Ebook - Software Engineering</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="HonKit 4.0.8">
@@ -56,10 +56,10 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="ci-cd-remove-node-modules-in-git-repository.html" />
+    <link rel="next" href="ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.html" />
     
     
-    <link rel="prev" href="../../" />
+    <link rel="prev" href="ci-cd.html" />
     
 
     </head>
@@ -110,7 +110,7 @@
         
         
     
-        <li class="chapter active" data-level="2.1" data-path="ci-cd.html">
+        <li class="chapter " data-level="2.1" data-path="ci-cd.html">
             
                 <a href="ci-cd.html">
             
@@ -124,7 +124,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.1.1" data-path="ci-cd-remove-node-modules-in-git-repository.html">
+        <li class="chapter active" data-level="2.1.1" data-path="ci-cd-remove-node-modules-in-git-repository.html">
             
                 <a href="ci-cd-remove-node-modules-in-git-repository.html">
             
@@ -244,7 +244,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >CI/CD</a>
+        <a href="../.." >Menghapus Node Modules di Git Repositori</a>
     </h1>
 </div>
 
@@ -259,9 +259,41 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="continue-integration--continue-delivery">Continue Integration / Continue Delivery</h1>
-<p><a href="ci-cd-remove-node-modules-in-git-repository.html">Menghapus Node Modules di Git Repositori</a></p>
-<p><a href="ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.html" title="CI/CD">Serverless Ebook Menggunakan Honkit, Github Pages, Github Action dan Calibre</a></p>
+                                <h1 id="menghapus-node-modules-di-git-repositori">Menghapus Node Modules di Git Repositori</h1>
+<p>Tutorial kali ini bagaimana untuk menghapus folder <code>node_modules</code> yang sudah terlanjur ke <em>upload</em> saat <em>push</em> ke repositori.</p>
+<h2 id="1-buat-file-gitignore">1. Buat File <code>.gitignore</code></h2>
+<ol>
+<li>Cek apakah file <code>.gitignore</code> sudah ada<pre><code class="lang-bash">ls -a
+</code></pre>
+</li>
+<li>Jika file <code>.gitignore</code> sudah ada, maka lewati langkah ini<pre><code class="lang-bash"><span class="hljs-comment"># create .gitignore file</span>
+touch .gitignore
+</code></pre>
+</li>
+</ol>
+<h2 id="2-menghapus-direktori-nodemodules">2. Menghapus Direktori <code>node_modules</code></h2>
+<ol>
+<li>Buka file <code>.gitignore</code> dan tambahkan kode seperti berikut<pre><code class="lang-bash">**/node_modules
+</code></pre>
+</li>
+<li>Menghapus direktori <code>node_modules</code> dari repositori git<pre><code class="lang-bash">git rm -r --cached node_modules
+</code></pre>
+</li>
+</ol>
+<h2 id="3-commit-semua-perubahan">3. Commit Semua Perubahan</h2>
+<ol>
+<li>Commit repositori git tanpa direktori <code>node_modules</code><pre><code class="lang-bash">git commit -m <span class="hljs-string">&quot;remove node_modules folder&quot;</span>
+</code></pre>
+</li>
+<li>Push perubahan ke repositori remote<pre><code class="lang-bash">git push origin main
+</code></pre>
+</li>
+<li>Commit file <code>.gitignore</code><pre><code class="lang-bash">git add .gitignore
+git commit -m <span class="hljs-string">&quot;updated .gitignore file&quot;</span>
+git push origin main
+</code></pre>
+</li>
+</ol>
 
                                 
                                 </section>
@@ -289,12 +321,12 @@
 
             
                 
-                <a href="../../" class="navigation navigation-prev " aria-label="Previous page: Pendahuluan">
+                <a href="ci-cd.html" class="navigation navigation-prev " aria-label="Previous page: CI/CD">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="ci-cd-remove-node-modules-in-git-repository.html" class="navigation navigation-next " aria-label="Next page: Menghapus Node Modules di Git Repositori">
+                <a href="ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.html" class="navigation navigation-next " aria-label="Next page: Serverless Ebook Menggunakan Honkit, Github Pages, Github Action dan Calibre">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -305,7 +337,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"CI/CD","level":"2.1","depth":1,"next":{"title":"Menghapus Node Modules di Git Repositori","level":"2.1.1","depth":2,"path":"dev-ops/ci-cd/ci-cd-remove-node-modules-in-git-repository.md","ref":"dev-ops/ci-cd/ci-cd-remove-node-modules-in-git-repository.md","articles":[]},"previous":{"title":"Pendahuluan","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"articles":[{"title":"Menghapus Node Modules di Git Repositori","level":"2.1.1","depth":2,"path":"dev-ops/ci-cd/ci-cd-remove-node-modules-in-git-repository.md","ref":"dev-ops/ci-cd/ci-cd-remove-node-modules-in-git-repository.md","articles":[]},{"title":"Serverless Ebook Menggunakan Honkit, Github Pages, Github Action dan Calibre","level":"2.1.2","depth":2,"path":"dev-ops/ci-cd/ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.md","ref":"dev-ops/ci-cd/ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.md","articles":[]}],"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Arif Nur Rochman","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Ebook - Software Engineering","language":"id","gitbook":"*"},"file":{"path":"dev-ops/ci-cd/ci-cd.md","mtime":"2023-08-02T03:30:44.117Z","type":"markdown"},"gitbook":{"version":"4.0.8","time":"2023-08-02T03:30:51.220Z"},"basePath":"../..","book":{"language":"id"}});
+            gitbook.page.hasChanged({"page":{"title":"Menghapus Node Modules di Git Repositori","level":"2.1.1","depth":2,"next":{"title":"Serverless Ebook Menggunakan Honkit, Github Pages, Github Action dan Calibre","level":"2.1.2","depth":2,"path":"dev-ops/ci-cd/ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.md","ref":"dev-ops/ci-cd/ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.md","articles":[]},"previous":{"title":"CI/CD","level":"2.1","depth":1,"path":"dev-ops/ci-cd/ci-cd.md","ref":"dev-ops/ci-cd/ci-cd.md","articles":[{"title":"Menghapus Node Modules di Git Repositori","level":"2.1.1","depth":2,"path":"dev-ops/ci-cd/ci-cd-remove-node-modules-in-git-repository.md","ref":"dev-ops/ci-cd/ci-cd-remove-node-modules-in-git-repository.md","articles":[]},{"title":"Serverless Ebook Menggunakan Honkit, Github Pages, Github Action dan Calibre","level":"2.1.2","depth":2,"path":"dev-ops/ci-cd/ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.md","ref":"dev-ops/ci-cd/ci-cd-serverless-ebook-using-honkit-github-pages-github-action-calibre.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Arif Nur Rochman","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Ebook - Software Engineering","language":"id","gitbook":"*"},"file":{"path":"dev-ops/ci-cd/ci-cd-remove-node-modules-in-git-repository.md","mtime":"2023-08-02T03:30:44.117Z","type":"markdown"},"gitbook":{"version":"4.0.8","time":"2023-08-02T03:30:51.220Z"},"basePath":"../..","book":{"language":"id"}});
         });
     </script>
 </div>
